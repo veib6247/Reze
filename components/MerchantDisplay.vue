@@ -17,7 +17,7 @@
 
     merchantDescription: {
       type: String,
-      required: true
+      required: false
     }
   })
 </script>
