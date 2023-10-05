@@ -32,9 +32,11 @@
 
     <div class="p-2 flex flex-col gap-2">
 
-      <div class="text-stone-300 font-mono text-sm">
-        <span class="block text-stone-300/70 text-xs">ID</span>
-        {{ merchantId }}
+      <div class="text-stone-300 text-sm">
+        <span class="block text-stone-300/70 text-xs">Mechant Entity ID</span>
+        <span class="font-mono">
+          {{ merchantId }}
+        </span>
       </div>
 
       <div class="text-stone-300 font-raleway text-sm flex flex-col gap-0">
