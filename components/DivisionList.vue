@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { data } = await useFetch('/api/getDivision')
+  const { pending, data } = await useLazyFetch('/api/getDivision')
   const divisionList = data.value.divisions
 </script>
 
@@ -10,8 +10,17 @@
     </div>
 
     <div class="pb-6 flex flex-col gap-0 overflow-y-auto">
+      <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="pending">
+        <span>
+          <IconsLoading />
+        </span>
+        <span>
+          Loading
+        </span>
+      </div>
+
       <DivisionItem v-for="division in divisionList" :key="division.id" :divisionId="division.id"
-        :divisionName="division.name">
+        :divisionName="division.name" v-else>
         {{ division.name }}
       </DivisionItem>
     </div>
