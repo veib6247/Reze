@@ -37,9 +37,13 @@
         {{ merchantId }}
       </div>
 
-      <div class="text-stone-300 font-raleway text-sm">
+      <div class="text-stone-300 font-raleway text-sm flex flex-col gap-1">
         <span class="block text-stone-300/70 text-xs">State</span>
-        {{ merchantState }}
+        <div>
+          <span class="bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm">
+            {{ merchantState }}
+          </span>
+        </div>
       </div>
 
       <div class="text-stone-300 font-raleway text-sm">
