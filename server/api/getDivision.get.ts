@@ -12,8 +12,11 @@ export default defineEventHandler(async (event) => {
         credentials: requestCredentialHeader,
       },
     })
+
     const data = response.data
-    return data
+    return data.divisions
+
+    //
   } catch (error) {
     return {
       SeverError: error,

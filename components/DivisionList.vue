@@ -1,10 +1,15 @@
 <script setup lang="ts">
-  const { pending, data } = await useLazyFetch('/api/getDivision')
-  const divisionList = data.value.divisions
+  /**
+   * display only divisions that are LIVE in state
+   */
+  const { pending, data: divisionList } = await useLazyFetch('/api/getDivision')
+  divisionList.value = divisionList.value.filter((division: { state: string }) => division.state == 'LIVE')
+
+  // console.info(divisionList.value)
 </script>
 
 <template>
-  <div class="w-64 flex flex-col border-r border-stone-400">
+  <div class="w-64 flex flex-col border-r border-stone-400/60">
     <div class="px-4 py-2 sticky top-0 bg-stone-300">
       <h1 class="text-lg text-gray-800 font-raleway">DIVISIONS</h1>
     </div>

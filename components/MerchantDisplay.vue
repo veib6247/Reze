@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <div class="backdrop-opacity-5 bg-stone-50/5 w-72 h-80 flex flex-col gap-0 border border-stone-300">
+  <div class="backdrop-opacity-5 bg-stone-50/5 w-72 h-80 flex flex-col gap-0 border border-stone-300/60">
     <h1 class="font-raleway bg-stone-300 p-2 truncate">
       <span>
         {{ merchantName.toUpperCase() }}
