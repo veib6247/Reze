@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* for ze links on ze side */
+/* .router-link-active {
+  @apply bg-slate-800;
+} */
+
+/* for ze scrollbar */
+/* width */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-stone-300 shadow;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-stone-400;
+}

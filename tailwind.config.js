@@ -8,7 +8,11 @@ module.exports = {
     './app.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
