@@ -23,21 +23,21 @@
 </script>
 
 <template>
-  <div class="backdrop-opacity-5 bg-stone-50/5 w-72 h-80 flex flex-col gap-0 border border-stone-300/60">
+  <div class="backdrop-opacity-5 bg-stone-50/5 w-80 h-96 flex flex-col gap-0 border border-stone-300/60">
     <h1 class="font-raleway bg-stone-300 p-2 truncate">
-      <span>
+      <span class="text-gray-800">
         {{ merchantName.toUpperCase() }}
       </span>
     </h1>
 
     <div class="p-2 flex flex-col gap-2">
 
-      <div class="text-stone-300 font-raleway text-sm">
+      <div class="text-stone-300 font-mono text-sm">
         <span class="block text-stone-300/70 text-xs">ID</span>
         {{ merchantId }}
       </div>
 
-      <div class="text-stone-300 font-raleway text-sm flex flex-col gap-1">
+      <div class="text-stone-300 font-raleway text-sm flex flex-col gap-0">
         <span class="block text-stone-300/70 text-xs">State</span>
         <div>
           <span class="bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm">

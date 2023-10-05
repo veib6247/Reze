@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
+        mono: ['Space Mono', 'monospace'],
       },
     },
   },
