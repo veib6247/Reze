@@ -1,6 +1,9 @@
 <script setup lang="ts">
   useHead({
-    title: 'Reze | 爆ボ弾ムの悪あく魔'
+    title: 'Reze | Alt. UI to BIP',
+    link: [
+      { rel: 'icon', type: 'image/png', href: '/reze.png' }
+    ]
   })
 </script>
 
