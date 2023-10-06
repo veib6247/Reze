@@ -30,3 +30,7 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-stone-400;
 }
+
+.bg-svg {
+  background-image: url('/endless-constellation.svg');
+}

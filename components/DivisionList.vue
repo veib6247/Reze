@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="w-64 flex flex-col border-r border-stone-400/60">
+  <div class="backdrop-blur-sm bg-stone-50/5 w-64 flex flex-col border-r border-stone-400/60">
     <div class="px-4 py-2 sticky top-0 bg-stone-300 shadow">
       <h1 class="text-lg text-gray-800 font-raleway">DIVISIONS</h1>
     </div>
