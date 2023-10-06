@@ -12,7 +12,7 @@
         <IconsLoading />
       </span>
       <span>
-        Loading
+        Loading...
       </span>
     </div>
 
