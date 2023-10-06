@@ -16,6 +16,12 @@ export default defineEventHandler(async (event) => {
     })
 
     const data = response.data
+
+    console.log({
+      merchantId: query.merchantId,
+      result: data,
+    })
+
     return data.merchantAccounts
 
     //
