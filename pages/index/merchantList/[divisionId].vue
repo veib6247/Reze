@@ -6,19 +6,23 @@
     description: string;
   }
 
-  const route = useRoute()
-  const { pending: merchantDataPending, data: merchantData, error: merchantDataError } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
-
   const filterQuery = ref('')
   const filteredArray: any = ref([])
 
+  const route = useRoute()
+  const { pending: merchantDataPending, data: merchantData, error: merchantDataError } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
+
   watch(filterQuery, (newVal, oldVal) => {
-    setTimeout(function () {
-      console.info(`Filtering for ${newVal}`)
-      filteredArray.value = merchantData.value.filter((merchant: Merchant) => {
-        return merchant.name === newVal
+    if (filterQuery.value !== '') {
+      setTimeout(() => {
+        filteredArray.value = merchantData.value.filter((merchant: Merchant) => {
+          if (merchant.name.includes(newVal))
+            return merchant
+        })
       }, 1000)
-    })
+    } else {
+      filteredArray.value = []
+    }
   })
 </script>
 
@@ -31,6 +35,8 @@
         <input type="text" class="p-2 w-full bg-transparent text-stone-300 border-none focus:ring-0" spellcheck="false"
           v-model="filterQuery" />
       </div>
+      <span class="text-stone-300/70 text-sm font-raleway" v-if="filterQuery && !filteredArray.length"> No Results
+        Found</span>
     </div>
 
     <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="merchantDataPending">
@@ -48,7 +54,7 @@
           :merchantId="merchant.id" :merchantState="merchant.state" :merchantDescription="merchant.description" />
       </TransitionGroup>
 
-      <TransitionGroup name="list" v-if="filteredArray.length">
+      <TransitionGroup name="list" v-else>
         <MerchantDisplay v-for="merchant in filteredArray" :key="merchant.id" :merchantName="merchant.name"
           :merchantId="merchant.id" :merchantState="merchant.state" :merchantDescription="merchant.description" />
       </TransitionGroup>
