@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const route = useRoute()
-  const { pending: merchantDataPending, data: merchantData } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
+  const { pending: merchantDataPending, data: merchantData, error: merchantDataError } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
 
   // console.info(merchantData.value)
 </script>
@@ -21,6 +21,12 @@
         <MerchantDisplay v-for="merchant in merchantData" :key="merchant.id" :merchantName="merchant.name"
           :merchantId="merchant.id" :merchantState="merchant.state" :merchantDescription="merchant.description" />
       </TransitionGroup>
+    </div>
+
+    <div class="p-6 text-red-300 font-raleway flex gap-2" v-if="merchantDataError">
+      <span>
+        Error Loading Merchant Data
+      </span>
     </div>
   </div>
 </template>
