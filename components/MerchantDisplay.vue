@@ -25,7 +25,9 @@
 
   const { pending: channelsPending, data: channelsList, error: channelsError } = await useLazyFetch(`/api/getChannel?merchantId=${props.merchantId}`)
 
-  // console.info(createdMerchantAccounts.value)
+  const copyChannelInfo = (channelInfo: Object) => {
+    navigator.clipboard.writeText(JSON.stringify(channelInfo))
+  }
 </script>
 
 <template>
@@ -80,13 +82,13 @@
         v-if="!createdMerchantAccountsPending && createdMerchantAccounts.length">
         <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
 
-        <div class="flex flex-col gap-0.5 py-1">
-          <div class="text-stone-300 font-raleway text-sm w-fit" v-for="createdMerchantAccount in createdMerchantAccounts"
+        <div class="flex flex-col gap-1 py-1">
+          <div class="text-stone-300 font-raleway text-sm" v-for="createdMerchantAccount in createdMerchantAccounts"
             :key="createdMerchantAccount.id">
-            {{ createdMerchantAccount.name }} <span class="text-xs text-stone-300/40">
-              {{
-                createdMerchantAccount.clearingInstitute
-              }}
+            {{ createdMerchantAccount.name }}
+            <span class="block text-xs text-stone-300/40">
+              {{ createdMerchantAccount.clearingInstitute }} <span v-if="createdMerchantAccount.supports3DSecure">|
+                3D</span>
             </span>
           </div>
         </div>
@@ -106,10 +108,13 @@
 
       <div class="text-stone-300 font-raleway text-sm" v-if="!channelsPending && channelsList.length">
         <span class="block text-stone-300/70 text-xs">Channels</span>
-        <div class="flex flex-col gap-0.5 py-1">
-          <span class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
-            {{ channel.name }}
-          </span>
+        <div class="flex flex-col gap-1 py-1">
+          <div class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
+            <button class="underline active:scale-95" @click="copyChannelInfo(channel)">
+              {{ channel.name }}
+            </button>
+            <span class="block font-mono text-xs text-stone-300/40">{{ channel.channel }}</span>
+          </div>
         </div>
       </div>
 
