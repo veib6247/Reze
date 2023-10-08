@@ -39,7 +39,7 @@
     </div>
 
     <!-- card body -->
-    <div class="h-96 p-2 flex flex-col gap-4 overflow-y-auto">
+    <div class="h-96 p-2 flex flex-col gap-4 overflow-auto">
       <div class="text-stone-300 text-sm">
         <span class="block text-stone-300/70 text-xs">Mechant Entity ID</span>
         <span class="font-mono">
@@ -81,9 +81,14 @@
         <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
 
         <div class="flex flex-col gap-0.5 py-1">
-          <span class="text-stone-300 font-raleway text-sm" v-for="createdMerchantAccount in createdMerchantAccounts">
-            {{ createdMerchantAccount.name }}
-          </span>
+          <div class="text-stone-300 font-raleway text-sm w-fit" v-for="createdMerchantAccount in createdMerchantAccounts"
+            :key="createdMerchantAccount.id">
+            {{ createdMerchantAccount.name }} <span class="text-xs text-stone-300/40">
+              {{
+                createdMerchantAccount.clearingInstitute
+              }}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -101,9 +106,8 @@
 
       <div class="text-stone-300 font-raleway text-sm" v-if="!channelsPending && channelsList.length">
         <span class="block text-stone-300/70 text-xs">Channels</span>
-
         <div class="flex flex-col gap-0.5 py-1">
-          <span class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList">
+          <span class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
             {{ channel.name }}
           </span>
         </div>
