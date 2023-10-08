@@ -13,9 +13,11 @@
   const filteredArray: any = ref([])
 
   watch(filterQuery, (newVal, oldVal) => {
-    console.info(`Filtering for ${newVal}`)
-    filteredArray.value = merchantData.value.filter((merchant: Merchant) => {
-      return merchant.name === newVal
+    setTimeout(function () {
+      console.info(`Filtering for ${newVal}`)
+      filteredArray.value = merchantData.value.filter((merchant: Merchant) => {
+        return merchant.name === newVal
+      }, 1000)
     })
   })
 </script>
@@ -24,12 +26,12 @@
   <div class="flex flex-col gap-0 overflow-auto">
     <!-- search box -->
     <div class="px-6 pt-6">
-      <div class="backdrop-blur-sm bg-stone-50/5 border border-stone-300/60 p-2">
-        <span class="text-stone-300/70 font-raleway">Search</span>
-        <input type="text" class="p-2 bg-none" v-model="filterQuery" />
+      <div class="pl-3 backdrop-blur-sm bg-stone-50/5 border border-stone-300/60 flex gap-1">
+        <span class="text-stone-300/70 font-raleway my-auto">Search</span>
+        <input type="text" class="p-2 w-full bg-transparent text-stone-300 border-none focus:ring-0" spellcheck="false"
+          v-model="filterQuery" />
       </div>
     </div>
-
 
     <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="merchantDataPending">
       <span>
