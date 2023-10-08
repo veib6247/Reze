@@ -1,13 +1,13 @@
 <script setup lang="ts">
   const route = useRoute()
-  const { pending, data: merchantData } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
+  const { pending: merchantDataPending, data: merchantData } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
 
   // console.info(merchantData.value)
 </script>
 
 <template>
   <div class="flex flex-col gap-0 overflow-auto">
-    <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="pending">
+    <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="merchantDataPending">
       <span>
         <IconsLoading />
       </span>
