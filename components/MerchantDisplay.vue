@@ -26,7 +26,7 @@
   const { pending: channelsPending, data: channelsList, error: channelsError } = await useLazyFetch(`/api/getChannel?merchantId=${props.merchantId}`)
 
   const copyChannelInfo = (channelInfo: Object) => {
-    navigator.clipboard.writeText(JSON.stringify(channelInfo))
+    navigator.clipboard.writeText(JSON.stringify(channelInfo, null, 2))
   }
 </script>
 
