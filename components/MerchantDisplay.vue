@@ -76,7 +76,8 @@
         <span class="block text-stone-300/70 text-xs">Fetching Merchant Accounts...</span>
       </div>
 
-      <div class="text-stone-300 font-raleway text-sm" v-if="createdMerchantAccounts.length">
+      <div class="text-stone-300 font-raleway text-sm"
+        v-if="!createdMerchantAccountsPending && createdMerchantAccounts.length">
         <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
 
         <div class="flex flex-col gap-0.5 py-1">
@@ -98,7 +99,7 @@
         <span class="block text-stone-300/70 text-xs">Fetching Channels List...</span>
       </div>
 
-      <div class="text-stone-300 font-raleway text-sm" v-if="channelsList.length">
+      <div class="text-stone-300 font-raleway text-sm" v-if="!channelsPending && channelsList.length">
         <span class="block text-stone-300/70 text-xs">Channels</span>
 
         <div class="flex flex-col gap-0.5 py-1">
