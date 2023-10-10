@@ -71,56 +71,80 @@
       </div>
 
       <!-- merchant list here -->
-      <div class="flex gap-2" v-if="createdMerchantAccountsPending">
-        <span>
-          <IconsLoadingSmol />
-        </span>
-        <span class="block text-stone-300/70 text-xs">Fetching Merchant Accounts...</span>
-      </div>
-
-      <div class="text-stone-300 font-raleway text-sm"
-        v-if="!createdMerchantAccountsPending && createdMerchantAccounts.length">
-        <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
-
-        <div class="flex flex-col gap-1 py-1">
-          <div class="text-stone-300 font-raleway text-sm" v-for="createdMerchantAccount in createdMerchantAccounts"
-            :key="createdMerchantAccount.id">
-            {{ createdMerchantAccount.name }}
-            <span class="block text-xs text-stone-300/40">
-              {{ createdMerchantAccount.clearingInstitute }} <span v-if="createdMerchantAccount.supports3DSecure">|
-                3D</span>
-            </span>
+      <Transition mode="out-in">
+        <div class="flex flex-col gap-1" v-if="createdMerchantAccountsPending">
+          <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
+          <div class="w-48 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
           </div>
         </div>
-      </div>
 
-      <div v-if="createdMerchantAccountsError">
-        <span class="block text-red-300/80 text-xs">Error in Fetching Merchant Accounts</span>
-      </div>
+        <div class="text-stone-300 font-raleway text-sm"
+          v-else-if="!createdMerchantAccountsPending && createdMerchantAccounts.length">
+          <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
+          <div class="flex flex-col gap-1 py-1">
+            <div class="text-stone-300 font-raleway text-sm" v-for="createdMerchantAccount in createdMerchantAccounts"
+              :key="createdMerchantAccount.id">
+              {{ createdMerchantAccount.name }}
+              <span class="block text-xs text-stone-300/40">
+                {{ createdMerchantAccount.clearingInstitute }} <span v-if="createdMerchantAccount.supports3DSecure">|
+                  3D</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="!createdMerchantAccountsPending && !createdMerchantAccounts.length">
+          <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
+          <span class="block text-stone-300/70 text-xs">-</span>
+        </div>
+
+        <div v-else-if="createdMerchantAccountsError">
+          <span class="block text-red-300/80 text-xs">Error in Fetching Merchant Accounts</span>
+        </div>
+      </Transition>
+
 
       <!-- channel list here -->
-      <div class="flex gap-2" v-if="channelsPending">
-        <span>
-          <IconsLoadingSmol />
-        </span>
-        <span class="block text-stone-300/70 text-xs">Fetching Channels List...</span>
-      </div>
-
-      <div class="text-stone-300 font-raleway text-sm" v-if="!channelsPending && channelsList.length">
-        <span class="block text-stone-300/70 text-xs">Channels</span>
-        <div class="flex flex-col gap-1 py-1">
-          <div class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
-            <button class="underline active:scale-95" @click="copyChannelInfo(channel)">
-              {{ channel.name }}
-            </button>
-            <span class="block font-mono text-xs text-stone-300/40">{{ channel.channel }}</span>
+      <Transition mode="out-in">
+        <div class="flex flex-col gap-1" v-if="channelsPending">
+          <span class="block text-stone-300/70 text-xs">Channels</span>
+          <div class="w-48 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
           </div>
         </div>
-      </div>
 
-      <div v-if="channelsError">
-        <span class="block text-red-300/80 text-xs">Error in Fetching Channels List</span>
-      </div>
+        <div class="text-stone-300 font-raleway text-sm" v-else-if="!channelsPending && channelsList.length">
+          <span class="block text-stone-300/70 text-xs">Channels</span>
+          <div class="flex flex-col gap-1 py-1">
+            <div class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
+              <button class="underline active:scale-95" @click="copyChannelInfo(channel)">
+                {{ channel.name }}
+              </button>
+              <span class="block font-mono text-xs text-stone-300/40">{{ channel.channel }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="!channelsPending && !channelsList.length">
+          <span class="block text-stone-300/70 text-xs">Channels</span>
+          <span class="block text-stone-300/70 text-xs">-</span>
+        </div>
+
+        <div v-else-if="channelsError">
+          <span class="block text-red-300/80 text-xs">Error in Fetching Channels List</span>
+        </div>
+      </Transition>
     </div>
   </div>
 </template>
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
