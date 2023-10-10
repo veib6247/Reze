@@ -73,7 +73,7 @@
       <!-- merchant list here -->
       <Transition mode="out-in">
         <div class="flex flex-col gap-1" v-if="createdMerchantAccountsPending">
-          <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
+          <span class="block text-stone-300/70 font-raleway text-xs">Merchant Accounts</span>
           <div class="w-48 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
           </div>
         </div>
@@ -94,7 +94,7 @@
         </div>
 
         <div v-else-if="!createdMerchantAccountsPending && !createdMerchantAccounts.length">
-          <span class="block text-stone-300/70 text-xs">Merchant Accounts</span>
+          <span class="block text-stone-300/70 font-raleway text-xs">Merchant Accounts</span>
           <span class="block text-stone-300/70 text-xs">-</span>
         </div>
 
@@ -107,7 +107,7 @@
       <!-- channel list here -->
       <Transition mode="out-in">
         <div class="flex flex-col gap-1" v-if="channelsPending">
-          <span class="block text-stone-300/70 text-xs">Channels</span>
+          <span class="block text-stone-300/70 font-raleway text-xs">Channels</span>
           <div class="w-48 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
           </div>
         </div>
@@ -125,7 +125,7 @@
         </div>
 
         <div v-else-if="!channelsPending && !channelsList.length">
-          <span class="block text-stone-300/70 text-xs">Channels</span>
+          <span class="block text-stone-300/70 font-raleway text-xs">Channels</span>
           <span class="block text-stone-300/70 text-xs">-</span>
         </div>
 
