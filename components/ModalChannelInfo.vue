@@ -14,7 +14,7 @@
 
     <!-- The dialog -->
     <div
-      class="fixed w-1/2 z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-950/30 border border-stone-300/60 drop-shadow-lg">
+      class="fixed w-1/2 z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-800/80 border border-stone-300/60 drop-shadow-lg">
 
       <!-- title -->
       <div class="bg-stone-300 h-10 p-2 font-raleway truncate">
