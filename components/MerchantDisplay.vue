@@ -27,9 +27,10 @@
 
   const { pending: channelsPending, data: channelsList, error: channelsError } = await useLazyFetch(`/api/getChannel?merchantId=${props.merchantId}`)
 
-  const copyChannelInfo = (channelInfo: Object) => {
+  const updateChannelInfo = (channelInfo: any) => {
     channelModal.showModal = true
-    navigator.clipboard.writeText(JSON.stringify(channelInfo, null, 2))
+    channelModal.channelInfo = channelInfo
+    // navigator.clipboard.writeText(JSON.stringify(channelInfo, null, 2))
   }
 </script>
 
@@ -119,7 +120,7 @@
           <span class="block text-stone-300/70 text-xs">Channels</span>
           <div class="flex flex-col gap-1 py-1">
             <div class="text-stone-300 font-raleway text-sm" v-for="channel in channelsList" :key="channel.channel">
-              <button class="underline active:scale-95" @click="copyChannelInfo(channel)">
+              <button class="underline active:scale-95" @click="updateChannelInfo(channel)">
                 {{ channel.name }}
               </button>
               <span class="block font-mono text-xs text-stone-300/40">{{ channel.channel }}</span>
