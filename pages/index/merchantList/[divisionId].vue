@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { useChannelModalStore } from '~/stores/rezeStore'
+
   type Merchant = {
     id: string;
     name: string;
@@ -6,11 +8,22 @@
     description: string;
   }
 
-  const filterQuery = ref('')
-  const filteredArray: any = ref([])
-
+  /**
+   * lazy load data fetching on load
+   */
   const route = useRoute()
   const { pending: merchantDataPending, data: merchantData, error: merchantDataError } = await useLazyFetch(`/api/getMerchant?divisionId=${route.params.divisionId}`)
+
+  /**
+   * all modal params
+   */
+  const channelModal = useChannelModalStore()
+
+  /**
+   * all filtering
+   */
+  const filterQuery = ref('')
+  const filteredArray: any = ref([])
 
   watch(filterQuery, (newVal, oldVal) => {
     if (filterQuery.value !== '') {
@@ -65,7 +78,13 @@
         Error Loading Merchant Data
       </span>
     </div>
+
   </div>
+
+  <!-- modal to display channel info -->
+  <Transition name="channelModal">
+    <ModalChannelInfo v-if="channelModal.showModal" />
+  </Transition>
 </template>
 
 <style scoped>
@@ -78,5 +97,16 @@
 .list-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+
+/* for modal transition */
+.channelModal-enter-active,
+.channelModal-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.channelModal-enter-from,
+.channelModal-leave-to {
+  opacity: 0;
 }
 </style>

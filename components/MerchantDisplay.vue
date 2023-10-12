@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  import { useChannelModalStore } from '~/stores/rezeStore'
+  const channelModal = useChannelModalStore()
+
   const props = defineProps({
     merchantName: {
       type: String,
@@ -26,6 +29,7 @@
   const { pending: channelsPending, data: channelsList, error: channelsError } = await useLazyFetch(`/api/getChannel?merchantId=${props.merchantId}`)
 
   const copyChannelInfo = (channelInfo: Object) => {
+    channelModal.showModal = true
     navigator.clipboard.writeText(JSON.stringify(channelInfo, null, 2))
   }
 </script>
