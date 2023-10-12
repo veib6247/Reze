@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useChannelModalStore } from '~/stores/rezeStore'
   const channelModal = useChannelModalStore()
 
   const props = defineProps({

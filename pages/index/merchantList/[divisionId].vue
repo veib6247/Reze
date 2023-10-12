@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { useChannelModalStore } from '~/stores/rezeStore'
-
   type Merchant = {
     id: string;
     name: string;

@@ -12,4 +12,7 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: ['defineStore'],
   },
+  imports: {
+    dirs: ['stores'],
+  },
 })
