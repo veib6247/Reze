@@ -82,9 +82,7 @@
   </div>
 
   <!-- modal to display channel info -->
-  <Transition name="channelModal">
-    <ModalChannelInfo v-if="channelModal.showModal" />
-  </Transition>
+  <ModalChannelInfo v-if="channelModal.showModal" />
 </template>
 
 <style scoped>
@@ -97,16 +95,5 @@
 .list-leave-to {
   opacity: 0;
   transform: translateX(30px);
-}
-
-/* for modal transition */
-.channelModal-enter-active,
-.channelModal-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.channelModal-enter-from,
-.channelModal-leave-to {
-  opacity: 0;
 }
 </style>
