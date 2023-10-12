@@ -36,7 +36,7 @@
           <span class="block text-gray-200/50 text-xs">Access Token</span>
           <div class="flex gap-0">
             <input :type="accessTokenInputType"
-              class="w-full px-0 py-1 font-mono text-gray-300 bg-transparent border-none focus:ring-0"
+              class="w-full px-0 py-1 text-sm font-mono text-gray-300 bg-transparent border-none focus:ring-0"
               v-model="channelModal.channelInfo.accessToken" readonly />
             <button class="active:scale-95" @click="toggleAccessTokenInputType">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"
