@@ -122,7 +122,7 @@
 
       <!-- action -->
       <div class="flex p-2 justify-end">
-        <button class="px-4 py-2 bg-stone-300 text-gray-800 font-raleway hover:bg-stone-400"
+        <button class="px-4 py-1 bg-stone-300 text-gray-800 font-raleway hover:bg-stone-400"
           @click="channelModal.showModal = false">
           Close
         </button>
