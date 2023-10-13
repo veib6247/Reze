@@ -115,6 +115,10 @@
           </div>
         </div>
 
+        <div v-else-if="channelsList == undefined">
+          <span class="block text-red-300/80 text-xs">Error in Fetching Channels List</span>
+        </div>
+
         <div class="text-stone-300 font-raleway text-sm" v-else-if="!channelsPending && channelsList.length">
           <span class="block text-stone-300/70 text-xs">Channels</span>
           <div class="flex flex-col gap-1 py-1">
