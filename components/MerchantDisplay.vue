@@ -89,8 +89,10 @@
               :key="createdMerchantAccount.id">
               {{ createdMerchantAccount.name }}
               <span class="block text-xs text-stone-300/40">
-                {{ createdMerchantAccount.clearingInstitute }} <span v-if="createdMerchantAccount.supports3DSecure">|
-                  3D</span>
+                {{ createdMerchantAccount.clearingInstitute }}
+                <span v-if="createdMerchantAccount.supports3DSecure">
+                  | 3D
+                </span>
               </span>
             </div>
           </div>
