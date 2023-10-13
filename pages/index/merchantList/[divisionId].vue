@@ -57,11 +57,11 @@
     <!-- merchant counter -->
     <div class="px-6 pt-3" v-if="!merchantDataPending">
       <span class="text-stone-300/70 text-sm font-raleway" v-if="!filteredArray.length">
-        Found {{ merchantData.length }} merchants
+        Found {{ merchantData.length }} merchant(s)
       </span>
 
       <span class="text-stone-300/70 text-sm font-raleway" v-else>
-        Found {{ filteredArray.length }} merchants
+        Found {{ filteredArray.length }} merchant(s)
       </span>
     </div>
 
