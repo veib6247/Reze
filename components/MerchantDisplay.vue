@@ -28,9 +28,8 @@
   const { pending: channelsPending, data: channelsList, error: channelsError } = await useLazyFetch(`/api/getChannel?merchantId=${props.merchantId}`)
 
   const updateChannelInfo = (channelInfo: any) => {
-    channelModal.showModal = true
     channelModal.channelInfo = channelInfo
-    // navigator.clipboard.writeText(JSON.stringify(channelInfo, null, 2))
+    channelModal.showModal = true
   }
 </script>
 
