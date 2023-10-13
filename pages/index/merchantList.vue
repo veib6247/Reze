@@ -9,8 +9,10 @@
         {{ divisionInfo.detail.name }}
       </h1>
 
-      <span class="bg-stone-800/20 text-gray-800 text-xs px-2 py-1 rounded-sm my-auto">
+      <span class="bg-stone-800/20 text-gray-800 text-xs px-2 py-1 rounded-sm my-auto flex gap-1">
         {{ divisionInfo.detail.state }}
+        <IconsLocked v-if="divisionInfo.detail.state == 'DISABLED'" />
+        <IconsLink v-else-if="divisionInfo.detail.state == 'CONNECTOR_TEST'" />
       </span>
     </div>
 

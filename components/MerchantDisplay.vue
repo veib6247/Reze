@@ -37,9 +37,16 @@
   <div class="backdrop-blur-sm bg-stone-50/5 w-80 h-fit flex flex-col gap-0 border border-stone-300/60">
 
     <!-- card title -->
-    <div class="bg-stone-300 h-10 p-2 font-raleway truncate">
-      <span class="text-gray-800">
+    <div class="bg-stone-300 h-10 p-2 font-raleway flex gap-1">
+      <span class="text-gray-800 truncate">
         {{ merchantName.toUpperCase() }}
+      </span>
+
+      <span class="w-fit bg-stone-800/20 text-gray-800 text-xs px-2 py-1 rounded-sm flex gap-1">
+        {{ merchantState }}
+        <IconsLocked v-if="merchantState == 'DISABLED'" />
+        <IconsBlocked v-else-if="merchantState == 'CLOSED'" />
+        <IconsLink v-else-if="merchantState == 'CONNECTOR_TEST'" />
       </span>
     </div>
 
@@ -54,11 +61,13 @@
 
       <div class="text-stone-300 font-raleway text-sm flex flex-col gap-0">
         <span class="block text-stone-300/70 text-xs">State</span>
-        <div>
-          <span class="bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm">
-            {{ merchantState }}
-          </span>
-        </div>
+
+        <span class="w-fit bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm flex gap-1">
+          {{ merchantState }}
+          <IconsLocked v-if="merchantState == 'DISABLED'" />
+          <IconsBlocked v-else-if="merchantState == 'CLOSED'" />
+          <IconsLink v-else-if="merchantState == 'CONNECTOR_TEST'" />
+        </span>
       </div>
 
       <div class="text-stone-300 font-raleway text-sm">
