@@ -20,7 +20,16 @@
 
       <DivisionItem v-for="division in divisionList" :key="division.id" :divisionId="division.id"
         :divisionName="division.name" :divisionState="division.state" v-else>
-        {{ division.name }}
+        <div class="flex gap-1">
+          <span>
+            {{ division.name }}
+          </span>
+
+          <IconsLocked v-if="division.state == 'DISABLED'" />
+          <IconsLink v-else-if="division.state == 'CONNECTOR_TEST'" />
+
+        </div>
+
       </DivisionItem>
     </div>
 
