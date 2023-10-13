@@ -41,13 +41,28 @@
   <div class="flex flex-col gap-0 overflow-auto">
     <!-- search box -->
     <div class="px-6 pt-6">
+
       <div class="pl-3 backdrop-blur-sm bg-stone-50/5 border border-stone-300/60 flex gap-1">
         <span class="text-stone-300/70 font-raleway my-auto">Search</span>
         <input type="text" class="p-2 w-full bg-transparent text-stone-300 border-none focus:ring-0" spellcheck="false"
           v-model="filterQuery" />
       </div>
-      <span class="text-stone-300/70 text-sm font-raleway" v-if="filterQuery && !filteredArray.length"> No Results
-        Found</span>
+
+      <span class="text-stone-300/70 text-sm font-raleway" v-if="filterQuery && !filteredArray.length">
+        No Results Found
+      </span>
+
+    </div>
+
+    <!-- merchant counter -->
+    <div class="px-6 pt-3" v-if="!merchantDataPending">
+      <span class="text-stone-300/70 text-sm font-raleway" v-if="!filteredArray.length">
+        Found {{ merchantData.length }} merchants
+      </span>
+
+      <span class="text-stone-300/70 text-sm font-raleway" v-else>
+        Found {{ filteredArray.length }} merchants
+      </span>
     </div>
 
     <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="merchantDataPending">

@@ -59,7 +59,7 @@
 
         <div class="text-stone-300 font-raleway text-sm">
           <span class="block text-gray-200/50 text-xs">State</span>
-          <span class="font-mono text-gray-300">
+          <span class="bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm">
             {{ channelModal.channelInfo.state }}
           </span>
         </div>
