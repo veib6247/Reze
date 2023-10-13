@@ -1,11 +1,5 @@
 <script setup lang="ts">
-  /**
-   * display only divisions that are LIVE in state
-   */
   const { pending, data: divisionList } = await useLazyFetch('/api/getDivision')
-  divisionList.value = divisionList.value.filter((division: { state: string }) => division.state == 'LIVE')
-
-  // console.info(divisionList.value)
 </script>
 
 <template>
@@ -25,7 +19,7 @@
       </div>
 
       <DivisionItem v-for="division in divisionList" :key="division.id" :divisionId="division.id"
-        :divisionName="division.name" v-else>
+        :divisionName="division.name" :divisionState="division.state" v-else>
         {{ division.name }}
       </DivisionItem>
     </div>

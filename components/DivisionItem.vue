@@ -8,13 +8,19 @@
     divisionName: {
       type: String,
       required: true
+    },
+
+    divisionState: {
+      type: String,
+      required: true
     }
   })
 
   const divisionInfo = useDivisionInfo()
 
   const updateSelectedDivisionInfo = () => {
-    divisionInfo.name = props.divisionName
+    divisionInfo.detail.name = props.divisionName
+    divisionInfo.detail.state = props.divisionState
   }
 </script>
 

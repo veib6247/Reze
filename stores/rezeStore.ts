@@ -21,10 +21,19 @@ export const useChannelModalStore = defineStore('channelModal', {
   },
 })
 
+type DivisionInfo = {
+  customerId: string
+  description: string
+  id: string
+  name: string
+  pspId: string
+  state: string
+}
+
 export const useDivisionInfo = defineStore('divisionInfo', {
   state: () => {
     return {
-      name: '',
+      detail: {} as DivisionInfo,
     }
   },
 })
