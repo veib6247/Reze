@@ -51,12 +51,7 @@
     </div>
 
     <div class="p-6 text-stone-300 font-raleway flex gap-2" v-if="merchantDataPending">
-      <span>
-        <IconsLoading />
-      </span>
-      <span>
-        Loading...
-      </span>
+      <MerchantDisplayLoading />
     </div>
 
     <div class="p-6 flex flex-wrap gap-2 " v-else>
