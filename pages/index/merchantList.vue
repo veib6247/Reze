@@ -8,7 +8,10 @@
       <h1 class="text-lg text-gray-800 font-raleway">
         {{ divisionInfo.detail.name }}
       </h1>
-      <span class="bg-stone-800/20 text-xs px-2 py-1 rounded-sm my-auto">{{ divisionInfo.detail.state }}</span>
+
+      <span class="bg-stone-800/20 text-gray-800 text-xs px-2 py-1 rounded-sm my-auto">
+        {{ divisionInfo.detail.state }}
+      </span>
     </div>
 
     <NuxtPage />
