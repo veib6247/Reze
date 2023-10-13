@@ -20,3 +20,11 @@ export const useChannelModalStore = defineStore('channelModal', {
     }
   },
 })
+
+export const useDivisionInfo = defineStore('divisionInfo', {
+  state: () => {
+    return {
+      name: '',
+    }
+  },
+})
