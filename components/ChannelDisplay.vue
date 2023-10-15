@@ -53,7 +53,7 @@
         <form class="w-full flex gap-2">
 
           <input :type="accessTokenInputType" autocomplete="off"
-            class="px-0 py-1 text-sm font-mono text-gray-300 bg-transparent border-none focus:ring-0"
+            class="px-0 py-1 text-sm font-mono text-stone-300 bg-transparent border-none focus:ring-0"
             :size="channelInfo.accessToken.length" v-model="channelInfo.accessToken" readonly />
 
           <button class="active:scale-95" @click="toggleAccessTokenInputType">
