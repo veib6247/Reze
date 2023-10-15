@@ -39,7 +39,6 @@
       <ChannelDisplayItem title="Channel Name" :itemData="channelInfo.name" />
       <ChannelDisplayItem title="Description" :itemData="channelInfo.description" />
 
-
       <div class="text-stone-300 text-sm flex flex-col gap-0">
         <span class="block text-stone-300/70 font-raleway text-xs">State</span>
         <span class="w-fit bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm flex gap-1">
@@ -47,9 +46,7 @@
         </span>
       </div>
 
-
       <ChannelDisplayItem title="Entity ID" :itemData="channelInfo.channel" />
-
 
       <div class="text-stone-300 text-sm">
         <span class="block text-stone-300/70 font-raleway text-xs">Access Token</span>
