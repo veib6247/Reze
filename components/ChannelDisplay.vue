@@ -6,6 +6,12 @@
   }>()
 
   const showChannelBody = ref(false)
+  const accessTokenInputType = ref('password')
+
+  const toggleAccessTokenInputType = (event: Event) => {
+    event.preventDefault()
+    accessTokenInputType.value = accessTokenInputType.value == 'password' ? 'text' : 'password'
+  }
 </script>
 
 <template>
@@ -30,94 +36,42 @@
 
     <!-- card body -->
     <div class="p-2 flex flex-col gap-4 overflow-y-auto" v-if="showChannelBody">
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Channel Name</span>
-        <span class="font-mono">
-          {{ channelInfo.name }}
-        </span>
-      </div>
+      <ChannelDisplayItem title="Channel Name" :itemData="channelInfo.name" />
+      <ChannelDisplayItem title="Description" :itemData="channelInfo.description" />
 
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Description</span>
-        <span class="font-mono" v-if="channelInfo.description">
-          {{ channelInfo.description }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
 
-      <div class="text-stone-300 font-raleway text-sm flex flex-col gap-0">
-        <span class="block text-stone-300/70 text-xs">State</span>
+      <div class="text-stone-300 text-sm flex flex-col gap-0">
+        <span class="block text-stone-300/70 font-raleway text-xs">State</span>
         <span class="w-fit bg-stone-300/40 text-stone-300/80 text-xs px-2 py-1 rounded-sm flex gap-1">
           {{ channelInfo.state }}
         </span>
       </div>
 
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Entity ID</span>
-        <span class="font-mono">
-          {{ channelInfo.channel }}
-        </span>
-      </div>
+
+      <ChannelDisplayItem title="Entity ID" :itemData="channelInfo.channel" />
+
 
       <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Access Token</span>
-        <span class="font-mono">
-          <!-- {{ channelInfo.accessToken }} -->
-          **********************************************
-        </span>
+        <span class="block text-stone-300/70 font-raleway text-xs">Access Token</span>
+        <form class="w-full flex gap-2">
+
+          <input :type="accessTokenInputType" autocomplete="off"
+            class="px-0 py-1 text-sm font-mono text-gray-300 bg-transparent border-none focus:ring-0"
+            :size="channelInfo.accessToken.length" v-model="channelInfo.accessToken" readonly />
+
+          <button class="active:scale-95" @click="toggleAccessTokenInputType">
+            <IconsEye v-if="accessTokenInputType == 'password'" />
+            <IconsEyeSlashed v-else />
+          </button>
+
+        </form>
       </div>
 
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Customer ID</span>
-        <span class="font-mono" v-if="channelInfo.customerId">
-          {{ channelInfo.customerId }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
-
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Login (Deprecated)</span>
-        <span class="font-mono" v-if="channelInfo.login">
-          {{ channelInfo.login }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
-
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Password (Deprecated)</span>
-        <span class="font-mono" v-if="channelInfo.pwd">
-          {{ channelInfo.pwd }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
-
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Secret (Deprecated)</span>
-        <span class="font-mono" v-if="channelInfo.secret">
-          {{ channelInfo.secret }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
-
-      <div class="text-stone-300 text-sm">
-        <span class="block text-stone-300/70 text-xs">Sender (Deprecated)</span>
-        <span class="font-mono" v-if="channelInfo.sender">
-          {{ channelInfo.sender }}
-        </span>
-        <span v-else>
-          -
-        </span>
-      </div>
+      <ChannelDisplayItem title="Customer ID" :itemData="channelInfo.customerId" />
+      <ChannelDisplayItem title="Login (Deprecated)" :itemData="channelInfo.login" />
+      <ChannelDisplayItem title="Password (Deprecated)" :itemData="channelInfo.pwd" />
+      <ChannelDisplayItem title="Secret (Deprecated)" :itemData="channelInfo.secret" />
+      <ChannelDisplayItem title="Sender (Deprecated)" :itemData="channelInfo.sender" />
 
     </div>
   </div>
