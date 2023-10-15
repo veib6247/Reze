@@ -2,22 +2,36 @@
   import { Merchant } from '~/types'
 
   const { data: divisionList, pending: divisionListPending } = await useLazyFetch('/api/getDivision')
-  const selectedDivision = ref()
+  const selectedDivision = ref(await divisionList.value[0])
   const merchantData = ref()
   const merchantDataPending = ref()
 
+  // fetch merchant list on the initial selected division
+  const { data, pending } = await useLazyFetch(`/api/getMerchant?divisionId=${selectedDivision.value.id}`)
+
+  merchantData.value = await data.value
+  merchantDataPending.value = pending.value
+
+
+  /**
+   * fetch merchant data when selectedDivision change
+   */
   watch(selectedDivision, async (newDivision, oldDivisionId) => {
     navigateTo('/')
 
     merchantDataPending.value = true
-    const { data: merchantList, pending } = await useFetch(`/api/getMerchant?divisionId=${newDivision.id}`)
+    const { data, pending } = await useFetch(`/api/getMerchant?divisionId=${newDivision.id}`)
 
-    merchantData.value = merchantList.value
+    merchantData.value = data.value
     merchantDataPending.value = pending.value
   })
 
 
+  /**
+   * push selected merchant data to store
+   */
   const merchantInfo = useMerchantInfo()
+
   const updateSelectedMerchant = (selectedMerchant: Merchant) => {
     merchantInfo.detail = selectedMerchant
   }
@@ -26,7 +40,7 @@
 <template>
   <div class="w-72 shrink-0 backdrop-blur-sm bg-stone-50/5 flex flex-col border-r border-stone-400/60">
 
-    <div class="h-16 px-4 py-2 sticky top-0 bg-stone-300 flex flex-col shrink-0">
+    <div class="h-14 px-4 py-2 sticky top-0 bg-stone-300 flex flex-col shrink-0">
 
       <h1 class="text-xs text-gray-800/80 font-raleway">Division</h1>
 
@@ -56,7 +70,7 @@
     <div class="pb-6 flex flex-col gap-0 overflow-y-auto" v-if="merchantData && !merchantDataPending">
 
       <NuxtLink class="px-4 py-1 text-sm text-gray-300 font-raleway hover:bg-stone-500 hover:text-slate-100"
-        exact-active-class="bg-stone-400 text-slate-900 hover:bg-stone-300" :to="`/merchant/${merchant.id}`"
+        exact-active-class="bg-stone-500 text-slate-100 hover:bg-stone-300" :to="`/merchant/${merchant.id}`"
         v-for="merchant in merchantData" @click="updateSelectedMerchant(merchant)">
         <span class="truncate">
           {{ merchant.name }}

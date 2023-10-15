@@ -4,7 +4,7 @@
 
 <template>
   <div class="w-full flex flex-col gap-0">
-    <div class="h-16 px-4 py-2 sticky top-0 z-40 bg-stone-300 flex gap-4">
+    <div class="h-14 px-4 py-2 sticky top-0 z-40 bg-stone-300 flex gap-4">
 
       <div class="w-full flex flex-col gap-0">
         <h1 class="text-xs text-gray-800/80 font-raleway">Merchant Name</h1>
