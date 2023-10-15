@@ -7,6 +7,8 @@
   const merchantDataPending = ref()
 
   watch(selectedDivision, async (newDivision, oldDivisionId) => {
+    navigateTo('/')
+
     merchantDataPending.value = true
     const { data: merchantList, pending } = await useFetch(`/api/getMerchant?divisionId=${newDivision.id}`)
 

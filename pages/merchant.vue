@@ -28,7 +28,9 @@
 
     </div>
 
-    <NuxtPage />
+    <div class="p-4">
+      <NuxtPage />
+    </div>
 
   </div>
 </template>

@@ -38,7 +38,4 @@
       </div>
     </div>
   </div>
-  <!-- <h1>
-    {{ $route.params.merchantId }}
-  </h1> -->
 </template>
