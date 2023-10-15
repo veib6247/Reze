@@ -9,11 +9,11 @@
 <template>
   <div class="w-full flex flex-col">
     <div class="flex flex-col gap-1" v-if="pending">
-      <span class="w-full h-5 bg-stone-300/40  p-1 rounded-full animate-pulse">
+      <span class="w-full h-5 bg-stone-300/40  p-1 animate-pulse">
       </span>
-      <span class="w-full h-5 bg-stone-300/40  p-1 rounded-full animate-pulse">
+      <span class="w-full h-5 bg-stone-300/40  p-1 animate-pulse">
       </span>
-      <span class="w-full h-5 bg-stone-300/40  p-1 rounded-full animate-pulse">
+      <span class="w-full h-5 bg-stone-300/40  p-1 animate-pulse">
       </span>
     </div>
 
