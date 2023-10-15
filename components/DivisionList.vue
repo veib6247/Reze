@@ -52,7 +52,9 @@
         <option :value="division"
           :class="{ 'text-red-500': division.state == 'DISABLED', 'text-blue-500': division.state == 'CONNECTOR_TEST' }"
           v-for="division in divisionList">
-          {{ division.name }}
+          <span>
+            {{ division.name }}
+          </span>
         </option>
       </select>
 
@@ -69,11 +71,15 @@
 
     <div class="py-1 flex flex-col gap-0 overflow-y-auto" v-if="merchantData && !merchantDataPending">
 
-      <NuxtLink class="px-4 py-1 text-sm text-gray-300 font-raleway hover:bg-stone-300/30 hover:text-slate-100"
+      <NuxtLink class="px-4 py-1 text-sm text-gray-300 font-raleway hover:bg-stone-300/30 hover:text-slate-100 flex gap-2"
         exact-active-class="bg-stone-300/30 text-slate-100 hover:bg-stone-300" :to="`/merchant/${merchant.id}`"
         v-for="merchant in merchantData" @click="updateSelectedMerchant(merchant)">
         <span class="truncate">
           {{ merchant.name }}
+        </span>
+
+        <span class="w-fit text-stone-300/40 text-xs p-1 flex gap-1">
+          {{ merchant.state }}
         </span>
       </NuxtLink>
 

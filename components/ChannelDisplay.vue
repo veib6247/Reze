@@ -32,7 +32,7 @@
         {{ channelInfo.name }}
       </span>
 
-      <span class="w-fit bg-stone-300/40 text-stone-300/80 text-xs px-1 rounded-sm flex gap-1">
+      <span class="w-fit text-stone-300/40 text-xs px-1 flex gap-1">
         {{ channelInfo.state }}
       </span>
 
