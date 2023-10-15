@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-0">
-    <div class="h-14 px-4 py-2 sticky top-0 z-40 bg-stone-300 flex gap-4">
+  <div class="w-full h-screen flex flex-col gap-0">
+    <div class="h-14 px-4 py-2 sticky top-0 z-40 bg-stone-300 flex shrink-0 gap-4">
 
       <div class="w-full flex flex-col gap-0">
         <h1 class="text-xs text-gray-800/80 font-raleway">Merchant Name</h1>
@@ -28,7 +28,7 @@
 
     </div>
 
-    <div class="p-4">
+    <div class="p-4 overflow-auto">
       <NuxtPage />
     </div>
 
