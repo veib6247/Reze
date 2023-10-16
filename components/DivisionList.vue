@@ -42,13 +42,14 @@
 
     <div class="h-14 px-4 py-2 sticky top-0 bg-stone-300 flex flex-col shrink-0">
 
-      <h1 class="text-xs text-gray-800/80 font-raleway">Division</h1>
+      <label for="division_list" class="text-xs text-gray-800/80 font-raleway">Division</label>
 
       <div class="text-xs text-gray-800 font-raleway animate-pulse" v-if="divisionListPending">
         Fetching divisions list...
       </div>
 
-      <select class="bg-transparent p-0 text-sm font-raleway w-full border-none focus:ring-0" v-model="selectedDivision">
+      <select id="division_list" class="bg-transparent p-0 text-sm font-raleway w-full border-none focus:ring-0"
+        v-model="selectedDivision">
         <option :value="division"
           :class="{ 'text-red-500': division.state == 'DISABLED', 'text-blue-500': division.state == 'CONNECTOR_TEST' }"
           v-for="division in divisionList">
