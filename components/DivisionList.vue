@@ -42,7 +42,9 @@
 
     <div class="h-14 px-4 py-2 sticky top-0 bg-stone-300 flex flex-col shrink-0">
 
-      <label for="division_list" class="text-xs text-gray-800/80 font-raleway">Division</label>
+      <label for="division_list" class="text-xs text-gray-800/80 font-raleway">
+        Division <span class="text-gray-800/40"> - {{ selectedDivision.state }}</span>
+      </label>
 
       <div class="text-xs text-gray-800 font-raleway animate-pulse" v-if="divisionListPending">
         Fetching divisions list...
