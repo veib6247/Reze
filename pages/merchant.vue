@@ -28,7 +28,7 @@
 
     </div>
 
-    <div class="p-4 overflow-auto">
+    <div class="px-4 overflow-auto">
       <NuxtPage />
     </div>
 
