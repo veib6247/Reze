@@ -70,7 +70,7 @@
 
     <div class="py-3 flex flex-col gap-0 overflow-y-auto" v-if="merchantData && !merchantDataPending">
 
-      <span class="text-gray-100/40 text-xs font-raleway px-4">
+      <span class="text-gray-100/40 text-xs font-raleway px-4" v-if="merchantData.length">
         Merchants
       </span>
 
