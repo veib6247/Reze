@@ -24,6 +24,9 @@
     </div>
 
     <div class="flex flex-col gap-1" v-else>
+      <span class="text-gray-100/40 text-xs font-raleway" v-if="channelsList && channelsList.length">
+        Channels
+      </span>
       <ChannelDisplay v-for="channel in channelsList" :id="channel.channel" :channel-info="channel" />
     </div>
   </div>
