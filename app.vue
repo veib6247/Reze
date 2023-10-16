@@ -1,9 +1,29 @@
 <script setup lang="ts">
   useHead({
-    title: 'Reze | Alt. UI to BIP',
+    title: 'Reze | Alternative UI to PAY.ON BIP',
+
     link: [
       { rel: 'icon', type: 'image/png', href: '/reze.png' }
-    ]
+    ],
+
+    meta: [
+      {
+        name: 'description',
+        content: 'An alternative UI to ACI Worldwides PAY.ON payment gateway'
+      },
+      {
+        name: 'keywords',
+        content: 'ACI Worldwide,PAY.ON,Payment Gateways,UI,Division,Merchant,Channel'
+      },
+      {
+        name: 'author',
+        content: 'Bryan Olandres'
+      }
+    ],
+
+    htmlAttrs: {
+      lang: 'en'
+    }
   })
 </script>
 
