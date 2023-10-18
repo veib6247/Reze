@@ -2,34 +2,33 @@
   useHead({
     title: 'Reze | Alternative UI to PAY.ON BIP',
 
-    link: [
-      { rel: 'icon', type: 'image/png', href: '/reze.png' }
-    ],
+    link: [{ rel: 'icon', type: 'image/png', href: '/reze.png' }],
 
     meta: [
       {
         name: 'description',
-        content: 'An alternative UI to ACI Worldwides PAY.ON payment gateway'
+        content: 'An alternative UI to ACI Worldwides PAY.ON payment gateway',
       },
       {
         name: 'keywords',
-        content: 'ACI Worldwide,PAY.ON,Payment Gateways,UI,Division,Merchant,Channel'
+        content:
+          'ACI Worldwide,PAY.ON,Payment Gateways,UI,Division,Merchant,Channel',
       },
       {
         name: 'author',
-        content: 'Bryan Olandres'
-      }
+        content: 'Bryan Olandres',
+      },
     ],
 
     htmlAttrs: {
-      lang: 'en'
-    }
+      lang: 'en',
+    },
   })
 </script>
 
 <template>
   <!-- <section class="h-screen bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 flex"> -->
-  <section class="h-screen bg-svg flex">
+  <section class="bg-svg flex h-screen">
     <DivisionList />
 
     <NuxtPage />

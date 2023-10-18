@@ -3,34 +3,40 @@
 </script>
 
 <template>
-  <div class="w-full h-screen flex flex-col gap-0">
-    <div class="h-14 px-4 py-2 sticky top-0 z-40 bg-stone-300 flex shrink-0 gap-4">
-
-      <div class="w-full flex flex-col gap-0">
-        <h1 class="text-xs text-gray-800/80 font-raleway">Merchant Name</h1>
-        <span class="text-sm text-gray-800 font-mono">{{ merchantInfo.detail.name }}</span>
+  <div class="flex h-screen w-full flex-col gap-0">
+    <div
+      class="sticky top-0 z-40 flex h-14 shrink-0 gap-4 bg-stone-300 px-4 py-2">
+      <div class="flex w-full flex-col gap-0">
+        <h1 class="font-raleway text-xs text-gray-800/80">Merchant Name</h1>
+        <span class="font-mono text-sm text-gray-800">{{
+          merchantInfo.detail.name
+        }}</span>
       </div>
 
-      <div class="w-full flex flex-col gap-0">
-        <h1 class="text-xs text-gray-800/80 font-raleway">Enity ID</h1>
-        <span class="text-sm text-gray-800 font-mono">{{ merchantInfo.detail.id }}</span>
+      <div class="flex w-full flex-col gap-0">
+        <h1 class="font-raleway text-xs text-gray-800/80">Enity ID</h1>
+        <span class="font-mono text-sm text-gray-800">{{
+          merchantInfo.detail.id
+        }}</span>
       </div>
 
-      <div class="w-full flex flex-col gap-0">
-        <h1 class="text-xs text-gray-800/80 font-raleway">State</h1>
-        <span class="text-sm text-gray-800 font-mono">{{ merchantInfo.detail.state }}</span>
+      <div class="flex w-full flex-col gap-0">
+        <h1 class="font-raleway text-xs text-gray-800/80">State</h1>
+        <span class="font-mono text-sm text-gray-800">{{
+          merchantInfo.detail.state
+        }}</span>
       </div>
 
-      <div class="w-full flex flex-col gap-0">
-        <h1 class="text-xs text-gray-800/80 font-raleway">Description</h1>
-        <span class="text-sm text-gray-800 font-mono">{{ merchantInfo.detail.description }}</span>
+      <div class="flex w-full flex-col gap-0">
+        <h1 class="font-raleway text-xs text-gray-800/80">Description</h1>
+        <span class="font-mono text-sm text-gray-800">{{
+          merchantInfo.detail.description
+        }}</span>
       </div>
-
     </div>
 
-    <div class="px-4 overflow-auto">
+    <div class="overflow-auto px-4">
       <NuxtPage />
     </div>
-
   </div>
 </template>

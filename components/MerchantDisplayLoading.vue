@@ -1,36 +1,34 @@
 <template>
-  <div class="backdrop-blur-sm bg-stone-50/5 w-80 h-fit flex flex-col gap-0 border border-stone-300/60">
-
+  <div
+    class="flex h-fit w-80 flex-col gap-0 border border-stone-300/60 bg-stone-50/5 backdrop-blur-sm">
     <!-- card title -->
-    <div class="bg-stone-300 h-10 p-2 align-middle">
-      <div class="w-24 h-5 bg-stone-700/40  p-1 rounded-full animate-pulse">
-      </div>
+    <div class="h-10 bg-stone-300 p-2 align-middle">
+      <div
+        class="h-5 w-24 animate-pulse rounded-full bg-stone-700/40 p-1"></div>
     </div>
 
     <!-- card body -->
-    <div class="h-96 p-2 flex flex-col gap-4 overflow-auto">
-
-      <div class="text-stone-300 text-sm flex flex-col gap-1">
-        <div class="w-20 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
-        <div class="w-36 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
+    <div class="flex h-96 flex-col gap-4 overflow-auto p-2">
+      <div class="flex flex-col gap-1 text-sm text-stone-300">
+        <div
+          class="h-4 w-20 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
+        <div
+          class="h-4 w-36 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
       </div>
 
-      <div class="text-stone-300 text-sm flex flex-col gap-1">
-        <div class="w-16 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
-        <div class="w-48 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
+      <div class="flex flex-col gap-1 text-sm text-stone-300">
+        <div
+          class="h-4 w-16 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
+        <div
+          class="h-4 w-48 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
       </div>
 
-      <div class="text-stone-300 text-sm flex flex-col gap-1">
-        <div class="w-24 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
-        <div class="w-40 h-4 bg-stone-300/40  p-1 rounded-full animate-pulse">
-        </div>
+      <div class="flex flex-col gap-1 text-sm text-stone-300">
+        <div
+          class="h-4 w-24 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
+        <div
+          class="h-4 w-40 animate-pulse rounded-full bg-stone-300/40 p-1"></div>
       </div>
-
     </div>
   </div>
 </template>
