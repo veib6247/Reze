@@ -96,7 +96,6 @@
         <span class="truncate">
           {{ merchant.name }}
         </span>
-
         <span class="flex w-fit gap-1 p-1 text-xs text-stone-300/40">
           {{ merchant.state }}
         </span>
