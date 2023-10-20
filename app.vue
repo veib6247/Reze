@@ -30,7 +30,6 @@
   <!-- <section class="h-screen bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 flex"> -->
   <section class="bg-svg flex h-screen">
     <DivisionList />
-
     <NuxtPage />
   </section>
 </template>
