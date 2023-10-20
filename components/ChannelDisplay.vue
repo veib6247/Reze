@@ -53,27 +53,10 @@
       <ChannelDisplayItem
         title="Description"
         :itemData="channelInfo.description" />
+
       <ChannelDisplayItem title="Entity ID" :itemData="channelInfo.channel" />
 
-      <div class="text-sm text-stone-300">
-        <span class="block font-raleway text-xs text-stone-300/70"
-          >Access Token</span
-        >
-        <form class="flex w-full gap-2">
-          <input
-            :type="accessTokenInputType"
-            autocomplete="off"
-            class="border-none bg-transparent px-0 py-1 font-mono text-sm text-stone-300 focus:ring-0"
-            :size="channelInfo.accessToken.length"
-            v-model="channelInfo.accessToken"
-            readonly />
-
-          <button class="active:scale-95" @click="toggleAccessTokenInputType">
-            <IconsEye v-if="accessTokenInputType == 'password'" />
-            <IconsEyeSlashed v-else />
-          </button>
-        </form>
-      </div>
+      <AppToggleInput label="Access Token" :data="channelInfo.accessToken" />
 
       <ChannelDisplayItem
         title="Customer ID"
@@ -83,13 +66,9 @@
         title="Login (Deprecated)"
         :itemData="channelInfo.login" />
 
-      <ChannelDisplayItem
-        title="Password (Deprecated)"
-        :itemData="channelInfo.pwd" />
+      <AppToggleInput label="Password (Deprecated)" :data="channelInfo.pwd" />
 
-      <ChannelDisplayItem
-        title="Secret (Deprecated)"
-        :itemData="channelInfo.secret" />
+      <AppToggleInput label="Secret (Deprecated)" :data="channelInfo.secret" />
 
       <ChannelDisplayItem
         title="Sender (Deprecated)"
