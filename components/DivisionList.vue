@@ -3,6 +3,7 @@
 
   const { data: divisionList, pending: divisionListPending } =
     await useLazyFetch('/api/getDivision')
+
   const selectedDivision = ref<DivisionInfo>(divisionList.value[0])
   const merchantData = ref<MerchantData>()
   const merchantDataPending = ref()
