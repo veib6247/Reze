@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { Merchant } from '~/types'
+  import { DivisionInfo, Merchant } from '~/types'
 
   const { data: divisionList, pending: divisionListPending } =
     await useLazyFetch('/api/getDivision')
-  const selectedDivision = ref(await divisionList.value[0])
+  const selectedDivision = ref<DivisionInfo>(divisionList.value[0])
   const merchantData = ref()
   const merchantDataPending = ref()
 
