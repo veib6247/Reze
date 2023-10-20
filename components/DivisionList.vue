@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { DivisionInfo, Merchant } from '~/types'
+  import { DivisionInfo, MerchantData, Merchant } from '~/types'
 
   const { data: divisionList, pending: divisionListPending } =
     await useLazyFetch('/api/getDivision')
   const selectedDivision = ref<DivisionInfo>(divisionList.value[0])
-  const merchantData = ref()
+  const merchantData = ref<MerchantData>()
   const merchantDataPending = ref()
 
   // fetch merchant list on the initial selected division

@@ -16,6 +16,8 @@ export type Merchant = {
   state: string
 }
 
+export type MerchantData = Merchant[]
+
 export type ChannelInfo = {
   accessToken: string
   channel: string
