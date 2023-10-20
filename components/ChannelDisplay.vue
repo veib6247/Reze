@@ -1,9 +1,11 @@
 <script setup lang="ts">
   import { ChannelInfo } from '~/types'
 
-  defineProps<{
+  interface Props {
     channelInfo: ChannelInfo
-  }>()
+  }
+
+  defineProps<Props>()
 
   const showChannelBody = ref(false)
   const accessTokenInputType = ref('password')
@@ -47,6 +49,7 @@
     <!-- card body -->
     <div class="flex flex-col gap-4 overflow-y-auto p-2" v-if="showChannelBody">
       <ChannelDisplayItem title="Channel Name" :itemData="channelInfo.name" />
+
       <ChannelDisplayItem
         title="Description"
         :itemData="channelInfo.description" />
@@ -75,15 +78,19 @@
       <ChannelDisplayItem
         title="Customer ID"
         :itemData="channelInfo.customerId" />
+
       <ChannelDisplayItem
         title="Login (Deprecated)"
         :itemData="channelInfo.login" />
+
       <ChannelDisplayItem
         title="Password (Deprecated)"
         :itemData="channelInfo.pwd" />
+
       <ChannelDisplayItem
         title="Secret (Deprecated)"
         :itemData="channelInfo.secret" />
+
       <ChannelDisplayItem
         title="Sender (Deprecated)"
         :itemData="channelInfo.sender" />

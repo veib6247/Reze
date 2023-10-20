@@ -18,7 +18,7 @@
   /**
    * fetch merchant data when selectedDivision change
    */
-  watch(selectedDivision, async (newDivision, oldDivisionId) => {
+  watch(selectedDivision, async (newDivision) => {
     navigateTo('/')
 
     merchantDataPending.value = true
