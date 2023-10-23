@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   const requestCredentialHeader = `${process.env.EMAIL}:${process.env.PASSWORD}`
 
   try {
-    const response = await axios({
+    const { data } = await axios({
       url: urlEndpoint,
       method: 'get',
       headers: {
@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
       },
     })
 
-    const data = response.data
     return data.divisions
 
     //
