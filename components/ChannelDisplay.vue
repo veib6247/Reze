@@ -8,13 +8,6 @@
   defineProps<Props>()
 
   const showChannelBody = ref(false)
-  const accessTokenInputType = ref('password')
-
-  const toggleAccessTokenInputType = (event: Event) => {
-    event.preventDefault()
-    accessTokenInputType.value =
-      accessTokenInputType.value == 'password' ? 'text' : 'password'
-  }
 </script>
 
 <template>
